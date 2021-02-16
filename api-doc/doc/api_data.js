@@ -1,0 +1,527 @@
+define({ "api": [
+  {
+    "type": "delete",
+    "url": "/api/persons/{id}",
+    "title": "Delete Person Data",
+    "version": "0.1.0",
+    "name": "deletePerson",
+    "group": "Persons",
+    "permission": [
+      {
+        "name": "private"
+      }
+    ],
+    "examples": [
+      {
+        "title": "http://yourdomain.com/api/persons/1",
+        "content": "http://yourdomain.com/api/persons/1",
+        "type": "json"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "api",
+            "description": "<p>subfolder name inside controllers folder</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "persons",
+            "description": "<p>route name to get all persons data</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>value of user_id column at persons table</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "success",
+            "description": "<p>consist true or false</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>always null</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "message",
+            "description": "<p>description of response</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success Example",
+          "content": "HTTP/1.1 200 OK\n\"success\": true,\n\"data\": [],\n\"message\": \"Person deleted successfully.\"",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://yourdomain.com/api/persons/1"
+      }
+    ],
+    "filename": "./persons-api-doc.js",
+    "groupTitle": "Persons"
+  },
+  {
+    "type": "get",
+    "url": "/api/persons",
+    "title": "Retrieve All Persons Data",
+    "version": "0.1.0",
+    "name": "getPersons",
+    "group": "Persons",
+    "permission": [
+      {
+        "name": "private"
+      }
+    ],
+    "examples": [
+      {
+        "title": "http://yourdomain.com/api/persons",
+        "content": "http://yourdomain.com/api/persons",
+        "type": "json"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "api",
+            "description": "<p>subfolder name inside controllers folder</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "persons",
+            "description": "<p>route name to get all persons data</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "success",
+            "description": "<p>consist true or false</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>the response data object</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "number",
+            "optional": false,
+            "field": "data.user_id",
+            "description": "<p>auto increment value</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.status",
+            "description": "<p>describe status of person ACTIVE/INACTIVE</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.position",
+            "description": "<p>describe person position</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "message",
+            "description": "<p>description of response</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success Example",
+          "content": "HTTP/1.1 200 OK\n\"success\": true,\n\"data\": [\n       {\n           \"user_id\": 1,\n           \"status\": \"INACTIVE\",\n           \"position\": \"TOP BOD\"\n       },\n       {\n           \"user_id\": 2,\n           \"status\": \"ACTIVE\",\n           \"position\": \"HR Manager\"\n       },\n       {\n           \"user_id\": 3,\n           \"status\": \"ACTIVE\",\n           \"position\": \"IT Manager\"\n       },\n       {\n           \"user_id\": 4,\n           \"status\": \"ACTIVE\",\n           \"position\": \"IT Staff\"\n       },\n       {\n           \"user_id\": 5,\n           \"status\": \"ACTIVE\",\n           \"position\": \"Accounting Staff\"\n       },\n       {\n           \"user_id\": 7,\n           \"status\": \"ACTIVE\",\n           \"position\": \"Finance Staff\"\n       }\n   ],\n\"message\": \"Persons retrieved successfully.\"",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./persons-api-doc.js",
+    "groupTitle": "Persons"
+  },
+  {
+    "type": "get",
+    "url": "/api/persons/{id}",
+    "title": "Get Single Person Data",
+    "version": "0.1.0",
+    "name": "getSinglePerson",
+    "group": "Persons",
+    "permission": [
+      {
+        "name": "private"
+      }
+    ],
+    "examples": [
+      {
+        "title": "http://yourdomain.com/api/persons/1",
+        "content": "http://yourdomain.com/api/persons/1",
+        "type": "json"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "api",
+            "description": "<p>subfolder name inside controllers folder</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "persons",
+            "description": "<p>route name to get all persons data</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>value of user_id column at persons table</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "success",
+            "description": "<p>consist true or false</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>the response data object</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "number",
+            "optional": false,
+            "field": "data.user_id",
+            "description": "<p>auto increment value</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.status",
+            "description": "<p>describe status of person ACTIVE/INACTIVE</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.position",
+            "description": "<p>describe person position</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "message",
+            "description": "<p>description of response</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success Example",
+          "content": "HTTP/1.1 200 OK\n \"success\": true,\n \"data\": {\n     \"user_id\": 1,\n     \"status\": \"ACTIVE\",\n     \"position\": \"BOD\"\n  },\n \"message\": \"Person retrieved successfully.\"",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "Unauthorized",
+            "description": "<p>only authenticated users can access the data.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "PersonNotFound",
+            "description": "<p>the <code>user_id</code> of the user was not found</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error Example",
+          "content": "HTTP/1.1 404 Not Found\n\"success\": false,\n\"message\": \"Person not found.\"",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./persons-api-doc.js",
+    "groupTitle": "Persons"
+  },
+  {
+    "type": "post",
+    "url": "/api/persons",
+    "title": "Insert New Person Data",
+    "version": "0.1.0",
+    "name": "insertPerson",
+    "group": "Persons",
+    "permission": [
+      {
+        "name": "private"
+      }
+    ],
+    "examples": [
+      {
+        "title": "http://yourdomain.com/api/persons",
+        "content": "http://yourdomain.com/api/persons",
+        "type": "json"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "api",
+            "description": "<p>subfolder name inside controllers folder</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "persons",
+            "description": "<p>route name to get all persons data</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "success",
+            "description": "<p>consist true or false</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>the response data object</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "number",
+            "optional": false,
+            "field": "data.user_id",
+            "description": "<p>auto increment value</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.status",
+            "description": "<p>describe inserted status of person</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.position",
+            "description": "<p>describe inserted person position</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "message",
+            "description": "<p>description of response</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success Example",
+          "content": "HTTP/1.1 200 OK\n\"success\": true,\n\"data\": {\n    \"user_id\": 7,\n    \"status\": \"ACTIVE\",\n    \"position\": \"Finance Staff\"\n},\n\"message\": \"Person created successfully.\"",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://yourdomain.com/api/persons"
+      }
+    ],
+    "filename": "./persons-api-doc.js",
+    "groupTitle": "Persons"
+  },
+  {
+    "type": "put",
+    "url": "/api/persons/{id}",
+    "title": "Update Person Data",
+    "version": "0.1.0",
+    "name": "updatePerson",
+    "group": "Persons",
+    "permission": [
+      {
+        "name": "private"
+      }
+    ],
+    "examples": [
+      {
+        "title": "http://yourdomain.com/api/persons/1",
+        "content": "http://yourdomain.com/api/persons/1",
+        "type": "json"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "api",
+            "description": "<p>subfolder name inside controllers folder</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "persons",
+            "description": "<p>route name to get all persons data</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>value of user_id column at persons table</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "success",
+            "description": "<p>consist true or false</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>the response data object</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "number",
+            "optional": false,
+            "field": "data.user_id",
+            "description": "<p>auto increment value</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.status",
+            "description": "<p>describe inserted status of person</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.position",
+            "description": "<p>describe inserted person position</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "message",
+            "description": "<p>description of response</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success Example",
+          "content": "HTTP/1.1 200 OK\n\"success\": true,\n\"data\": {\n    \"user_id\": 7,\n    \"status\": \"ACTIVE\",\n    \"position\": \"Finance Staff\"\n},\n\"message\": \"Person updated successfully.\"",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://yourdomain.com/api/persons/1"
+      }
+    ],
+    "filename": "./persons-api-doc.js",
+    "groupTitle": "Persons"
+  }
+] });

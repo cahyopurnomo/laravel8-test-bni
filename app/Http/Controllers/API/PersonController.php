@@ -46,7 +46,7 @@ class PersonController extends BaseController
         $person = Person::find($id);
 
         if(is_null($person)){
-            return $this->sendError('Person  not found.');
+            return $this->sendError('Person not found.');
         }
 
         return $this->sendResponse(new PersonsResource($person), 'Person retrieved successfully.');
